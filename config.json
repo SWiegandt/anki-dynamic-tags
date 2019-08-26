@@ -1,0 +1,13 @@
+{
+  "patterns": [
+    {
+      "pattern": "nhk.or.jp/news/easy",
+      "tag": "NHK_Easy"
+    },
+    {
+      "pattern": "reddit.com",
+      "tag": "Reddit"
+    }
+  ],
+  "deck": "Yomichan"
+}
