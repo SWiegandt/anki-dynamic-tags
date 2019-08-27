@@ -32,10 +32,19 @@ class NoteTagger:
         else:
             return None
 
+    def get_new_deck_id(self, deck_name):
+        deck = mw.col.decks.byName(deck_name)
+
+        if deck:
+            return deck['id']
+        else:
+            return self.get_deck_id()
+
     def apply_tags(self, note: Note):
         if not note.model()['did'] == self.get_deck_id():
             return
 
         for pattern in self.patterns:
             if pattern.match(note):
-                note.addTag(pattern.tag)
+                # note.addTag(pattern.tag)
+                note.model()['did'] = self.get_new_deck_id(f'{self.deck_name}::{pattern.tag}')
